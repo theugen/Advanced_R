@@ -13,4 +13,7 @@ trial <- data.frame(x=runif(20), y=c(1:20), z=c(-9:10), t=rnorm(20))
 trial2 <- data.frame(x=runif(20), y=c(1:20), z=c(-9:10), t=as.character(rnorm(20)))
 
 lapply(trial, scale01) # applying scale01() to all columns of a data frame
-lapply(lapply(trial2, is.numeric), scale01) # not yet working...
+# Trying to apply algorithm only to numeric columns
+indexes <- ifelse(lapply(trial2, is.numeric), 1, NA) # finding numeric columns
+lapply(trial2[indexes], scale01) # not yet working... it returns all NaNs
+#lapply(lapply(trial2, is.numeric), scale01) # not yet working... it returns all NaNs
