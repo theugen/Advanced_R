@@ -17,3 +17,14 @@ lapply(trial, scale01) # applying scale01() to all columns of a data frame
 indexes <- ifelse(lapply(trial2, is.numeric), 1, NA) # finding numeric columns
 lapply(trial2[indexes], scale01) # not yet working... it returns all NaNs
 #lapply(lapply(trial2, is.numeric), scale01) # not yet working... it returns all NaNs
+
+# ******** EXERCISE 3 ****************
+# Use both for loops and lapply() to fit linear models to the mtcars using the
+# formulas stored in this list:
+
+formulas <- list(
+  mpg ~ disp,
+  mpg ~ I(1/disp),
+  mpg ~ disp + wt,
+  mpg ~ I(1/disp) + wt
+)
