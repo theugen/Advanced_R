@@ -28,3 +28,13 @@ formulas <- list(
   mpg ~ disp + wt,
   mpg ~ I(1/disp) + wt
 )
+
+# using for loop
+for(i in seq_along(formulas)){
+  model <- lm(formulas[[i]], data=mtcars)
+  model
+}
+
+# using lapply()
+lapply(x=mtcars, FUN=function(formulas) lm()) # not working yet
+
